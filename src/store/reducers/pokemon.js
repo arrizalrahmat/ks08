@@ -5,6 +5,7 @@ import {
 
 const initialState = {
   pokemons: [],
+  detail: {},
   isLoading: false,
   error: '',
   next: '',
@@ -32,6 +33,19 @@ const pokemonSlice = createSlice({
       })
       .addCase(fetchPokemons.rejected, (state) => {
         state.isLoading = false;
+      })
+      .addCase(
+        fetchPokemonDetail.fulfilled,
+        (state, action) => {
+          state.detail = action.payload;
+          state.isLoading = false;
+        }
+      )
+      .addCase(fetchPokemonDetail.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchPokemonDetail.rejected, (state) => {
+        state.isLoading = false;
       }),
 });
 
@@ -43,8 +57,23 @@ export const fetchPokemons = createAsyncThunk(
   'pokemon/fetchPokemons',
   async (url) => {
     const res = await fetch(url);
-    const { results, next, previous } = await res.json();
+    const data = await res.json();
+    const { results, next, previous } = data;
+
+    console.log(data);
 
     return { results, next, previous };
+  }
+);
+
+export const fetchPokemonDetail = createAsyncThunk(
+  'pokemon/fetchPokemonDetail',
+  async (id) => {
+    const res = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${id}`
+    );
+    const data = await res.json();
+
+    return data;
   }
 );

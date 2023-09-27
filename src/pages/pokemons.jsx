@@ -1,17 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPokemons } from '../store/reducers/pokemon';
+import { useNavigate } from 'react-router-dom';
 
 const Pokemons = () => {
   const dispatch = useDispatch();
   const { pokemons, isLoading, next, previous } =
     useSelector((state) => state.pokemon);
-
-  useEffect(() => {
-    dispatch(
-      fetchPokemons('https://pokeapi.co/api/v2/pokemon/')
-    );
-  }, []);
+  const navigate = useNavigate();
 
   const handleNext = () => {
     dispatch(fetchPokemons(next));
@@ -20,6 +16,19 @@ const Pokemons = () => {
   const handlePrevious = () => {
     dispatch(fetchPokemons(previous));
   };
+
+  const handleDetail = (url) => {
+    const splitted = url.split('/');
+    const id = splitted[splitted.length - 2];
+
+    navigate(id);
+  };
+
+  useEffect(() => {
+    dispatch(
+      fetchPokemons('https://pokeapi.co/api/v2/pokemon/')
+    );
+  }, []);
 
   return (
     <div>
@@ -41,7 +50,13 @@ const Pokemons = () => {
                   <tr key={index}>
                     <td>{pokemon.name}</td>
                     <td>
-                      <button>see details</button>
+                      <button
+                        onClick={() => {
+                          handleDetail(pokemon.url);
+                        }}
+                      >
+                        see details
+                      </button>
                     </td>
                   </tr>
                 ))}

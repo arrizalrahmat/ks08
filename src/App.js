@@ -13,6 +13,7 @@ import Item from './pages/Item';
 import Login from './pages/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import Pokemons from './pages/pokemons';
+import PokemonDetail from './pages/PokemonDetail';
 
 function App() {
   return (
@@ -42,6 +43,10 @@ function App() {
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/pokemons" element={<Pokemons />} />
+        <Route
+          path="/pokemons/:id"
+          element={<PokemonDetail />}
+        />
       </Routes>
     </div>
   );
