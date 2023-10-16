@@ -10,6 +10,7 @@ const Navbar = () => {
       <Link to="/pokemons">Pokemons</Link> |{' '}
       <Link to="/profile">Profile</Link> |{' '}
       <Link to="/students">Students</Link> |{' '}
+      <Link to="/banking">Banking</Link> |{' '}
       <Link to="/hospital">hospital</Link>
     </nav>
   );
