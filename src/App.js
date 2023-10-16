@@ -16,6 +16,7 @@ import Pokemons from './pages/pokemons';
 import PokemonDetail from './pages/PokemonDetail';
 import Profile from './pages/Profile';
 import Students from './pages/Students';
+import Hospital from './pages/Hospital';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
         />
         <Route path="/profile" element={<Profile />} />
         <Route path="/students" element={<Students />} />
+        <Route path="/hospital" element={<Hospital />} />
       </Routes>
     </div>
   );

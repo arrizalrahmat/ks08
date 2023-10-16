@@ -9,7 +9,8 @@ const Navbar = () => {
       <Link to="/items">Items</Link> |{' '}
       <Link to="/pokemons">Pokemons</Link> |{' '}
       <Link to="/profile">Profile</Link> |{' '}
-      <Link to="/students">Students</Link>
+      <Link to="/students">Students</Link> |{' '}
+      <Link to="/hospital">hospital</Link>
     </nav>
   );
 };
