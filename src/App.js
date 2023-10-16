@@ -15,6 +15,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Pokemons from './pages/pokemons';
 import PokemonDetail from './pages/PokemonDetail';
 import Profile from './pages/Profile';
+import Students from './pages/Students';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           element={<PokemonDetail />}
         />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/students" element={<Students />} />
       </Routes>
     </div>
   );
