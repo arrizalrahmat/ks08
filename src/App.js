@@ -16,6 +16,7 @@ import Pokemons from './pages/pokemons';
 import PokemonDetail from './pages/PokemonDetail';
 import Profile from './pages/Profile';
 import Students from './pages/Students';
+import Banking from './pages/Banking';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
         />
         <Route path="/profile" element={<Profile />} />
         <Route path="/students" element={<Students />} />
+        <Route path="/banking" element={<Banking />} />
       </Routes>
     </div>
   );
