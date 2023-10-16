@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import Pokemons from './pages/pokemons';
 import PokemonDetail from './pages/PokemonDetail';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           path="/pokemons/:id"
           element={<PokemonDetail />}
         />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );
